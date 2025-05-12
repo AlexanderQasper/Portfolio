@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     
+    #Всё для логина
     'django.contrib.sites',  # обязательно для работы allauth
     'allauth',
     'allauth.account',
@@ -70,6 +71,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.discord',
     'allauth.socialaccount.providers.facebook',
+    
+    # Всё для портфолио
+    'portfolio',
 ]
 
 MIDDLEWARE = [
