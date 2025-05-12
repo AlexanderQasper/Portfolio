@@ -66,7 +66,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',  # соцсети пока не подключаем, но этот модуль нужен даже для базовой работы
-    
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.apple',
+    'allauth.socialaccount.providers.discord',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +84,11 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
+
+#SOCIALACCOUNT_PROVIDERS = {
+#    'google': {}
+#}
+
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # стандартный бэкенд Django

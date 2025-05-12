@@ -11,6 +11,7 @@ from myproject.search import views as search_views
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),
+    path('superadmin/', include('myproject.urls_django_admin')),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
