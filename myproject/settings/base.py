@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',  # соцсети пока не подключаем, но этот модуль нужен даже для базовой работы
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.apple',
+    'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.discord',
     'allauth.socialaccount.providers.facebook',
 ]
