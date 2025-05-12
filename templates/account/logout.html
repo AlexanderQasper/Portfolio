@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">You have been logged out.</h2>
+
+    <div class="text-center">
+      <a href="{% url 'account_login' %}" class="text-blue-600 hover:underline">Sign in again</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
