@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-content hover:bg-primary-focus;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-content hover:bg-secondary-focus;
+  }
+  
+  .form-input {
+    @apply input input-bordered w-full;
+  }
+  
+  .form-label {
+    @apply label-text;
+  }
+  
+  .form-error {
+    @apply text-error text-sm mt-1;
+  }
+} 

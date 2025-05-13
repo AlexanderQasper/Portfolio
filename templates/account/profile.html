@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+{% load form_tags %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+  <div class="card bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title text-2xl font-bold mb-6 text-center">Profile</h2>
+
+      <div class="space-y-6">
+        <!-- User Information -->
+        <div class="card bg-base-200">
+          <div class="card-body">
+            <h3 class="card-title text-lg font-semibold mb-4">Account Information</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <p class="text-sm opacity-70">Username</p>
+                <p class="font-medium">{{ user.username }}</p>
+              </div>
+              <div>
+                <p class="text-sm opacity-70">Email</p>
+                <p class="font-medium">{{ user.email }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Change Password Form -->
+        <div class="card bg-base-200">
+          <div class="card-body">
+            <h3 class="card-title text-lg font-semibold mb-4">Change Password</h3>
+            <form method="post" action="{% url 'account_change_password' %}">
+              {% csrf_token %}
+              {{ form.non_field_errors }}
+
+              <div class="form-control w-full mb-4">
+                {{ form.oldpassword.label_tag|add_class:"label" }}
+                {{ form.oldpassword|add_class:"input input-bordered w-full" }}
+                {{ form.oldpassword.errors|add_class:"text-error text-sm mt-1" }}
+              </div>
+
+              <div class="form-control w-full mb-4">
+                {{ form.password1.label_tag|add_class:"label" }}
+                {{ form.password1|add_class:"input input-bordered w-full" }}
+                {{ form.password1.errors|add_class:"text-error text-sm mt-1" }}
+              </div>
+
+              <div class="form-control w-full mb-4">
+                {{ form.password2.label_tag|add_class:"label" }}
+                {{ form.password2|add_class:"input input-bordered w-full" }}
+                {{ form.password2.errors|add_class:"text-error text-sm mt-1" }}
+              </div>
+
+              <button type="submit" class="btn btn-primary w-full">
+                Change Password
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Social Accounts -->
+        <div class="card bg-base-200">
+          <div class="card-body">
+            <h3 class="card-title text-lg font-semibold mb-4">Connected Accounts</h3>
+            <div class="space-y-4">
+              {% for socialaccount in user.socialaccount_set.all %}
+              <div class="flex items-center justify-between p-3 bg-base-100 rounded-lg border">
+                <div class="flex items-center">
+                  <span class="font-medium">{{ socialaccount.provider|title }}</span>
+                </div>
+                <span class="badge badge-success">Connected</span>
+              </div>
+              {% empty %}
+              <p class="text-base-content opacity-70">No social accounts connected</p>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="text-center">
+          <a href="{% url 'account_logout' %}" class="btn btn-error">
+            Sign Out
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} 
