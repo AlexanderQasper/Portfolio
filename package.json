@@ -8,13 +8,14 @@
     "start:reload": "webpack-dev-server"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.17",
+    "autoprefixer": "^10.4.21",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^6.10.0",
     "cssnano": "^6.0.3",
     "daisyui": "^5.0.35",
     "mini-css-extract-plugin": "^2.8.0",
+    "postcss": "^8.5.3",
     "postcss-custom-properties": "^13.3.5",
     "postcss-loader": "^8.1.0",
     "sass-loader": "^14.1.1",
